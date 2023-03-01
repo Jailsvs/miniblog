@@ -30,7 +30,6 @@ const Register = () => {
 
   return (
     <div className={styles.register}>
-      
       <h1>Cadastre-se para postar</h1>
       <p>Crie seu usuário e compartilhe suas histórias</p>
       <form onSubmit={handleSubmit}>
@@ -71,6 +70,7 @@ const Register = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}/>
         </label>
         <button className="btn">Cadastrar</button>
+        {error && <p className='error'>{error}</p>}
       </form>
     </div>
   )
