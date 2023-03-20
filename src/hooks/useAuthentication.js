@@ -7,7 +7,6 @@ import {
 } from "firebase/auth";
 
 import { useState, useEffect } from "react";
-
 import { db } from "../firebase/config";
 
 export const useAuthentication = () => {
@@ -87,22 +86,17 @@ export const useAuthentication = () => {
       console.log(error.message.includes("user-not"));
 
       let systemErrorMessage;
-
       if (error.message.includes("user-not-found")) {
         systemErrorMessage = "Usuário não encontrado.";
       } else if (error.message.includes("wrong-password")) {
         systemErrorMessage = "Senha incorreta.";
       } else {
-        systemErrorMessage = "Ocorreu um erro, por favor tenta mais tarde.";
+        systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
       }
-
       console.log(systemErrorMessage);
-
       setError(systemErrorMessage);
     }
-
     console.log(error);
-
     setLoading(false);
   };
 
