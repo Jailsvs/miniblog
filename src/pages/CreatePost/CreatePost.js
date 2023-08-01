@@ -25,16 +25,17 @@ const CreatePost = () => {
       new URL(image);
     } catch (error) {
       setFormError("A imagem precisa ser uma URL.");
+      return;
     }
 
     const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");
+      return;
     }
 
-    console.log("teste", formError)
-    if(formError) return;
+    //if(formError) return;
 
     insertDocument({
       title,
@@ -57,7 +58,7 @@ const CreatePost = () => {
           <span>Título</span>
           <input  type="text" 
                   name="title" 
-                  required 
+                  required
                   placeholder="Pense em um bom título..."
                   onChange={(e) => setTitle(e.target.value)}
                   value={title}/>
