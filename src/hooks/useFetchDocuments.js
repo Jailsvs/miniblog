@@ -6,7 +6,7 @@ import {  collection,
           onSnapshot, 
           where } from 'firebase/firestore';  
 
-export default useFetchDocuments = (docCollection, search = null, uid = null) => {
+export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   
   const [documents, setDocuments] = useState(null)
   const [error, setError] = useState(null)
@@ -31,7 +31,7 @@ export default useFetchDocuments = (docCollection, search = null, uid = null) =>
           setDocuments(querySnapchot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data()
-          }));
+          }))
           )
         });
       } catch (error) {
@@ -43,7 +43,7 @@ export default useFetchDocuments = (docCollection, search = null, uid = null) =>
       }
     }
     loadData();
-  }, [docColletion, search, uid, cancelled]);
+  }, [docCollection, search, uid, cancelled]);
 
   useEffect(() => {
     return () => setCancelled(true);
