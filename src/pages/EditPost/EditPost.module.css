@@ -10,3 +10,14 @@
   color: #aaa;
   margin-bottom: 2em;
 }
+
+.editPost .previewTitle {
+  margin-bottom: .2em;
+  color: #000;
+  font-weight: bold;
+}
+
+.editPost .previewImage {
+  max-width: 100%;
+  margin-bottom: 1em;
+}
